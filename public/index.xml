@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kimiyow Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Kimiyow Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Mar 2025 16:09:08 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post1</title>
+      <link>http://localhost:1313/post/post1/</link>
+      <pubDate>Fri, 14 Mar 2025 16:09:08 -0700</pubDate>
+      <guid>http://localhost:1313/post/post1/</guid>
+      <description>&lt;h1 id=&#34;practica-0&#34;&gt;Practica 0&lt;/h1&gt;&#xA;&lt;h2 id=&#34;uso-de-repositorios-markdown&#34;&gt;Uso de repositorios MarkDown&lt;/h2&gt;&#xA;&lt;h3 id=&#34;montes-solis-kimberly&#34;&gt;Montes Solis Kimberly&lt;/h3&gt;&#xA;&lt;p&gt;Este es un texto en italica&lt;/p&gt;&#xA;&lt;p&gt;Este es un texto en &lt;em&gt;Negritas&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Este es un texto &lt;del&gt;tachado&lt;/del&gt;&#xA;z&#xA;Este es un texto &lt;code&gt;texto&lt;/code&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Elemento 1&lt;/li&gt;&#xA;&lt;li&gt;Elemento 2&lt;/li&gt;&#xA;&lt;li&gt;Elemento 3 &#xA;&lt;ul&gt;&#xA;&lt;li&gt;Elemento 3.1&lt;/li&gt;&#xA;&lt;li&gt;Elemento 3.2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Elemento 4&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Elemento 1&lt;/li&gt;&#xA;&lt;li&gt;Elemento 2&lt;/li&gt;&#xA;&lt;li&gt;Elemento 3&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Elemento 3.1&lt;/li&gt;&#xA;&lt;li&gt;Elemento 3.2&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Elemento 4&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.google.com&#34; title=&#34;Texto del tooltip&#34;&gt;Texto del enlace&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.uabc.mx&#34;&gt;UABC&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.uabc.mx&#34; title=&#34;Sitio universitario&#34;&gt;UABC&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfGbgpDCSkYlyXges-IjQvvQr7Tp-kD-b1fw&amp;amp;s&#34; alt=&#34;Texto alternativo&#34;&gt;&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Productos&lt;/th&gt;&#xA;          &lt;th&gt;Precio&lt;/th&gt;&#xA;          &lt;th&gt;Cantidad&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Laptop&lt;/td&gt;&#xA;          &lt;td&gt;3.3&lt;/td&gt;&#xA;          &lt;td&gt;2&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Mouse&lt;/td&gt;&#xA;          &lt;td&gt;13.3&lt;/td&gt;&#xA;          &lt;td&gt;1&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Productos&lt;/th&gt;&#xA;          &lt;th&gt;Precio&lt;/th&gt;&#xA;          &lt;th&gt;Cantidad&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Laptop&lt;/td&gt;&#xA;          &lt;td&gt;3.3&lt;/td&gt;&#xA;          &lt;td&gt;2&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Mouse&lt;/td&gt;&#xA;          &lt;td&gt;13.3&lt;/td&gt;&#xA;          &lt;td&gt;1&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Esto es una nota&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
