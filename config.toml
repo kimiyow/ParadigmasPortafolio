@@ -1,25 +1,31 @@
 
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Kimiyow blog (˶˃ ᵕ ˂˶)'
-theme = "ananke"
+title = 'Kimiyow Blog '
+theme = "beautifulhugo"
+
 
 [menu]
   [[menu.main]]
-    identifier = "home"
-    name = "Inicio"
-    url = "/"
+    identifier = "post1"
+    name = "❤︎ Practica 0"
+    url = "/posts/post1/"
     weight = 1
 
   [[menu.main]]
-    identifier = "posts"
-    name = "Blog"
-    url = "/posts/"
+    identifier = "post2"
+    name = "❤︎ Practica 1"
+    url = "/posts/post2/"
     weight = 2
 
-  [[menu.main]]
-    identifier = "about"
-    name = "Sobre Mí"
-    url = "/about/"
-    weight = 3
 
+[params]
+  subtitle = "꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦"
+  dateformat = "2006-01-02"
+  hidecredits = true 
+  hidecopyright = false
+  customCSS = ["css/custom.css"]
+
+[[params.social]]
+  name = "github"
+  url = "https://github.com/kimiyow"

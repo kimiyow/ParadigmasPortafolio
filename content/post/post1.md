@@ -1,3 +1,9 @@
+---
+title: "Práctica 0"
+date: 2025-03-14
+draft: false
+---
+
 #  **Práctica #0: Uso de Repositorios Markdown**  
 
 ## **Montes Solis Kimberly**  
