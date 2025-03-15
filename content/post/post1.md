@@ -1,80 +1,123 @@
-+++
-date = '2025-03-14T16:09:08-07:00'
-draft = false
-title = 'Post1'
-+++
+#  **Práctica #0: Uso de Repositorios Markdown**  
+
+## **Montes Solis Kimberly**  
+
+## **── .✦ Introducción**  
+
+En este reporte se presentará la práctica realizada utilizando conceptos básicos de **Markdown** y **Git**, explorando su aplicación en la creación y gestión de contenido de manera eficiente.  
+
+---
+
+## ᯓ★ **¿Qué es Markdown?**  
+
+Markdown es un **lenguaje de marcado ligero** que permite formatear texto de manera sencilla y rápida. Se usa principalmente para:  
+
+❤︎ **Documentación** (README en GitHub)  
+❤︎ **Blogs y artículos**  
+❤︎ **Toma de notas**  
+❤︎ **Formateo de texto en plataformas web**  
+
+Su simplicidad lo hace ideal para quienes desean escribir sin preocuparse por código HTML complicado.  
+
+---
+
+## 𖦹 **¿Cómo se utiliza?**  
+
+Markdown se escribe en archivos con **extensión `.md`** y puede visualizarse en diversas plataformas compatibles como **GitHub, GitLab, VS Code, Jupyter Notebook**, entre otros.  
 
 
+### **Textos:**
+```md
+# Título Principal
+## Subtítulo
+**Negrita** y *Cursiva*
+```
 
-<!-- Los comentarios se hacen de esta manera -->
-<!-- Encabezados depende el numero de # es el numero de encabezados-->
-# Practica 0
+### **Enlaces e imágenes:**
+```md
+[Texto del enlace](https://ejemplo.com)  
+![Imagen](ruta/imagen.jpg)
+```
 
-## Uso de repositorios MarkDown
+### **Tablas:**
+```md
+| Nombre  | Edad |
+|---------|------|
+| Ana     | 23   |
+| Pedro   | 30   |
+```
 
-### Montes Solis Kimberly
-
-Este es un texto en italica
-<!-- Tambien se puede con guin bajo -->
-<!-- como hacer negritas -->
-Este es un texto en *Negritas*
-<!-- tambien se puede con doble guion bajo -->
-
-<!-- como tachar -->
-Este es un texto ~tachado~
-z
-Este es un texto `texto`
-<!-- como hacer listas -->
-* Elemento 1
-* Elemento 2
-* Elemento 3 <!--Para hacer los subtemas es con tab -->
-  * Elemento 3.1
-  * Elemento 3.2
-* Elemento 4
-  
-<!-- Como hacer listas ordenadas -->
-1. Elemento 1
-2. Elemento 2
-3. Elemento 3
-   1. Elemento 3.1
-   2. Elemento 3.2
-4. Elemento 4
-
-<!-- Enlaces -->
-[Texto del enlace](http://www.google.com
-"Texto del tooltip")
-
-[UABC](http://www.uabc.mx)
-
-[UABC](http://www.uabc.mx
-"Sitio universitario")
-
-<!-- Imagenes -->
-![Texto alternativo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfGbgpDCSkYlyXges-IjQvvQr7Tp-kD-b1fw&s)
+### **Listas:**
+```md
+- Elemento 1
+- Elemento 2
+```
 
 
- | Productos | Precio | Cantidad |
- | - | - | - |
- | Laptop | 3.3| 2 |
- | Mouse | 13.3 | 1 |
+Markdown es una herramienta poderosa y fácil de usar para formatear texto de manera rápida y organizada. Su combinación con **Git** permite gestionar contenido de manera eficiente y profesional. ⋆˙⟡
 
-<!-- Manera limpia -->
-| Productos | Precio | Cantidad |
-| --------- | ------ | -------- |
-| Laptop    | 3.3    | 2        |
-| Mouse     | 13.3   | 1        |
+---
 
-<!-- Notas -->
-> Esto es una nota
+## ᯓ★ **¿Qué es Git?** 
 
-<!-- Tareas -->
-* [x] Primera tarea
-* [ ] Segunda tarea
-* [ ] Tercera tarea
-  * [x] Tercera y media
-* [ ] Cuarta tarea
+**Git** es un **sistema de control de versiones distribuido** que permite gestionar cambios en proyectos de software de manera eficiente. Se usa para:  
 
-<!-- Divisores horizontales -->
-*  
-<!-- Menciones -->
-@brandon :+1:  :smi:
+❤︎ **Controlar versiones de archivos**  
+❤︎ **Colaborar en equipo sin sobrescribir cambios**  
+❤︎ **Mantener un historial de modificaciones**  
+
+Git se utiliza en plataformas como **GitHub, GitLab y Bitbucket** para alojar y compartir código.  
+
+---
+
+## ⋆. 𐙚 ̊ **Comandos Básicos de Git**  
+
+A continuación, se presentan los comandos esenciales para trabajar con Git:  
+
+✿ **Configurar Git (solo la primera vez)**  
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+```
+✿ **Inicializar un repositorio**  
+```bash
+git init
+```
+
+✿ **Ver el estado de los archivos** 
+```bash
+git status
+```
+
+✿ **Agregar archivos al área de preparación** 
+```bash
+git add .
+```
+
+✿ **Guardar cambios con un mensaje descriptivo** 
+```bash
+git commit -m "Mensaje del commit"
+```
+
+✿ **Ver historial de commits** 
+```bash
+git log --oneline
+```
+
+✿ **Conectar un repositorio local con GitHub**
+```bash
+git remote add origin https://github.com/usuario/repositorio.git
+```
+
+✿ **Subir cambios al repositorio remoto** 
+```bash
+git push origin main
+```
+
+✿ **Descargar cambios del repositorio remoto** 
+```bash
+git pull origin main
+```
+Git es una herramienta esencial para el desarrollo de software, permitiendo trabajar de manera ordenada y colaborativa. Con estos comandos básicos, es posible gestionar versiones de código de forma eficiente. 
+
+---
