@@ -1,1 +1,25 @@
+
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Kimiyow blog (˶˃ ᵕ ˂˶)'
 theme = "ananke"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Inicio"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "about"
+    name = "Sobre Mí"
+    url = "/about/"
+    weight = 3
+

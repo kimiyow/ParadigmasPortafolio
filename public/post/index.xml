@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Kimiyow Site</title>
+    <title>Posts on Kimiyow blog (˶˃ ᵕ ˂˶)</title>
     <link>http://localhost:1313/post/</link>
-    <description>Recent content in Posts on Kimiyow Site</description>
+    <description>Recent content in Posts on Kimiyow blog (˶˃ ᵕ ˂˶)</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
@@ -13,6 +13,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/post1/</guid>
       <description>&lt;h1 id=&#34;práctica-0-uso-de-repositorios-markdown&#34;&gt;&lt;strong&gt;Práctica #0: Uso de Repositorios Markdown&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;montes-solis-kimberly&#34;&gt;&lt;strong&gt;Montes Solis Kimberly&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;--introducción&#34;&gt;&lt;strong&gt;── .✦ Introducción&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;En este reporte se presentará la práctica realizada utilizando conceptos básicos de &lt;strong&gt;Markdown&lt;/strong&gt; y &lt;strong&gt;Git&lt;/strong&gt;, explorando su aplicación en la creación y gestión de contenido de manera eficiente.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ᯓ-qué-es-markdown&#34;&gt;ᯓ★ &lt;strong&gt;¿Qué es Markdown?&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Markdown es un &lt;strong&gt;lenguaje de marcado ligero&lt;/strong&gt; que permite formatear texto de manera sencilla y rápida. Se usa principalmente para:&lt;/p&gt;&#xA;&lt;p&gt;❤︎ &lt;strong&gt;Documentación&lt;/strong&gt; (README en GitHub)&lt;br&gt;&#xA;❤︎ &lt;strong&gt;Blogs y artículos&lt;/strong&gt;&lt;br&gt;&#xA;❤︎ &lt;strong&gt;Toma de notas&lt;/strong&gt;&lt;br&gt;&#xA;❤︎ &lt;strong&gt;Formateo de texto en plataformas web&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/post2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/post2/</guid>
+      <description>&lt;h1 id=&#34;práctica-1-elementos-básicos-de-los-lenguajes-de-programación&#34;&gt;&lt;strong&gt;Práctica #1: Elementos básicos de los lenguajes de programación&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;montes-solis-kimberly&#34;&gt;&lt;strong&gt;Montes Solis Kimberly&lt;/strong&gt;&lt;/h2&gt;</description>
     </item>
   </channel>
 </rss>
