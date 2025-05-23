@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-16T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-16T13:30:07-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
+    <lastmod>2025-05-16T13:30:07-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/p2.1/</loc>
     <lastmod>2025-05-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/post3/</loc>
     <lastmod>2025-05-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/practica2_2/</loc>
+    <loc>http://localhost:1313/post/p2.2/</loc>
+    <lastmod>2025-03-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/post4/</loc>
     <lastmod>2025-03-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/post1/</loc>
@@ -20,7 +26,7 @@
     <loc>http://localhost:1313/post/post2/</loc>
     <lastmod>2025-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/practica2_3/</loc>
+    <loc>http://localhost:1313/post/p2.3/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

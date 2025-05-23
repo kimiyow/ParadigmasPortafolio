@@ -1,3 +1,8 @@
++++
+date = '2025-05-16T13:30:07-07:00'
+draft = true
+title = 'Practica3'
++++
 
 #  **Práctica #2.3: Aplicación Web de Biblioteca con Flask**  
 

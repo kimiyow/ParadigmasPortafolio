@@ -1,5 +1,5 @@
 ---
-title: "Práctica 1"
+title: "Práctica 2"
 date: 2025-03-15
 draft: false
 ---
