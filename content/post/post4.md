@@ -4,7 +4,7 @@ date: 2025-05-23
 draft: false
 ---
 
-# **Práctica #3: Introducción a Haskell y Proyecto App Haskell**
+#  **Práctica #3: Introducción a Haskell y Proyecto App Haskell**
 
 ## **Montes Solis Kimberly**
 

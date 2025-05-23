@@ -188,7 +188,7 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-05-23
+  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-05-29
   
   
   
@@ -254,45 +254,6 @@
 <h2 id="ᯓ-qué-es-haskell">ᯓ★ <strong>¿Qué es Haskell?</strong></h2>
 <p><strong>Haskell</strong> es un lenguaje de programación <strong>funcional, puro y de tipado estático</strong>. Fue diseñado para manejar la programación funcional de forma académica y profesional, promoviendo la claridad y corrección del código.</p>
         <a href="http://localhost:1313/post/post4/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="http://localhost:1313/post/post5/">
-        <h2 class="post-title">Práctica 4</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on 2025-05-23
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h1 id="práctica-4-introducción-a-prolog"><strong>Práctica #4: Introducción a Prolog</strong></h1>
-<h2 id="montes-solis-kimberly"><strong>Montes Solis Kimberly</strong></h2>
-<h2 id="--introducción"><strong>── .✦ Introducción</strong></h2>
-
         
     </div>
 
@@ -418,9 +379,122 @@
     </p>
     <div class="post-entry">
         
-        <h1 id="práctica-1-elementos-básicos-de-los-lenguajes-de-programación"><strong>Práctica #1: Elementos básicos de los lenguajes de programación</strong></h1>
+        <h1 id="práctica-1-elementos-básicos-de-los-lenguajes-de-programación"><strong>Práctica #1: Elementos Básicos de los Lenguajes de Programación</strong></h1>
 <h2 id="montes-solis-kimberly"><strong>Montes Solis Kimberly</strong></h2>
-
+<h2 id="-administración-de-memoria-en-c">✦ Administración de Memoria en C</h2>
+<hr>
+<h3 id="𖦹-código-1-definición-del-módulo-de-administración-de-memoria">𖦹 <strong>Código #1: Definición del Módulo de Administración de Memoria</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#ifndef MEMORY_MANAGEMENT_H
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MEMORY_MANAGEMENT_H
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifndef MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MEMORY_MANAGEMENT_DISPLAY 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_allocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_deallocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_allocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_deallocations;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#if MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayMemoryUsage</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapAllocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapDeallocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackAllocations</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackDeallocations</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define displayMemoryUsage() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementHeapAllocations(pointer, size) ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementHeapDeallocations(pointer) ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementStackAllocations() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementStackDeallocations() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif </span><span style="color:#75715e">// MEMORY_MANAGEMENT_H
+</span></span></span></code></pre></div><hr>
+<h3 id="-elementos-clave-del-código">✦ Elementos Clave del Código</h3>
+<ul>
+<li><strong>Variables Globales</strong>: <code>heap_allocations</code>, <code>stack_allocations</code> para rastrear el uso de memoria.</li>
+<li><strong>Macros Condicionales</strong>: Controlan la visibilidad y ejecución del código.</li>
+<li><strong>Subprogramas</strong>: Separan funciones según propósito, favoreciendo la modularidad.</li>
+<li><strong>Tipos de Datos</strong>: Uso de punteros (<code>void *</code>) y <code>size_t</code>.</li>
+</ul>
+<hr>
+<h3 id="𖦹-código-2-implementación-de-la-lógica-de-rastreo">𖦹 <strong>Código #2: Implementación de la Lógica de Rastreo</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;memory_management.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> heap_allocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> heap_deallocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> stack_allocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> stack_deallocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> MemoryRecord {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">size_t</span> size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> MemoryRecord <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} MemoryRecord;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MemoryRecord <span style="color:#f92672">*</span>heap_memory_records <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addMemoryRecord</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size) {
+</span></span><span style="display:flex;"><span>    MemoryRecord <span style="color:#f92672">*</span>record <span style="color:#f92672">=</span> (MemoryRecord <span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(MemoryRecord));
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>pointer <span style="color:#f92672">=</span> pointer;
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>size <span style="color:#f92672">=</span> size;
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> heap_memory_records;
+</span></span><span style="display:flex;"><span>    heap_memory_records <span style="color:#f92672">=</span> record;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">removeMemoryRecord</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer) {
+</span></span><span style="display:flex;"><span>    MemoryRecord <span style="color:#f92672">**</span>current <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>heap_memory_records;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">*</span>current) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ((<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>pointer <span style="color:#f92672">==</span> pointer) {
+</span></span><span style="display:flex;"><span>            MemoryRecord <span style="color:#f92672">*</span>to_free <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>current;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">*</span>current <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">free</span>(to_free);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        current <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="-funciones-adicionales">✦ Funciones Adicionales</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#if MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayMemoryUsage</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Muestra resumen y detalles de memoria
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapAllocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size) {
+</span></span><span style="display:flex;"><span>    heap_allocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">addMemoryRecord</span>(pointer, size);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapDeallocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer) {
+</span></span><span style="display:flex;"><span>    heap_deallocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">removeMemoryRecord</span>(pointer);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackAllocations</span>() {
+</span></span><span style="display:flex;"><span>    stack_allocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackDeallocations</span>() {
+</span></span><span style="display:flex;"><span>    stack_deallocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span></code></pre></div><hr>
+<h3 id="-puntos-clave">✦ Puntos Clave</h3>
+<ul>
+<li><strong>Gestión del Heap</strong>: Registra asignaciones y liberaciones con listas enlazadas.</li>
+<li><strong>Visualización de Uso</strong>: Condicional al macro <code>MEMORY_MANAGEMENT_DISPLAY</code>.</li>
+<li><strong>Estructura</strong>: Modular y flexible para integrar en proyectos grandes.</li>
+<li><strong>Control de Secuencia</strong>: Mediante <code>#if</code> y estructuras iterativas como <code>while</code>.</li>
+</ul>
+<hr>
+<h3 id="-conclusión">⋆⟡ <strong>Conclusión</strong></h3>
+<p>Este módulo en C muestra un manejo detallado del uso de memoria, destacando el uso de estructuras, punteros, macros y funciones condicionales. Es una herramienta eficaz para monitorear recursos en sistemas complejos.</p>
+        <a href="http://localhost:1313/post/post2/" class="post-read-more">[Read More]</a>
         
     </div>
 
