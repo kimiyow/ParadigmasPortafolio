@@ -31,9 +31,9 @@ theme = "beautifulhugo"
     weight = 4
 
   [[menu.main]]
-    identifier = "post5"
+    identifier = "post6"
     name = "❤︎ Practica 4"
-    url = "/post/post5/"
+    url = "/post/post6/"
     weight = 5
 
 
