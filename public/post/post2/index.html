@@ -14,8 +14,121 @@
 
       <title>Práctica 1 - </title>
 
-  <meta name="description" content="Práctica #1: Elementos básicos de los lenguajes de programación
-Montes Solis Kimberly"><script type="application/ld+json">
+  <meta name="description" content="Práctica #1: Elementos Básicos de los Lenguajes de Programación
+Montes Solis Kimberly
+✦ Administración de Memoria en C
+
+𖦹 Código #1: Definición del Módulo de Administración de Memoria
+#ifndef MEMORY_MANAGEMENT_H
+#define MEMORY_MANAGEMENT_H
+#include &lt;stdio.h&gt;
+
+#ifndef MEMORY_MANAGEMENT_DISPLAY
+#define MEMORY_MANAGEMENT_DISPLAY 0
+#endif
+
+extern int heap_allocations;
+extern int heap_deallocations;
+extern int stack_allocations;
+extern int stack_deallocations;
+
+#if MEMORY_MANAGEMENT_DISPLAY
+void displayMemoryUsage();
+void incrementHeapAllocations(void *pointer, size_t size);
+void incrementHeapDeallocations(void *pointer);
+void incrementStackAllocations();
+void incrementStackDeallocations();
+#else
+#define displayMemoryUsage() ((void)0)
+#define incrementHeapAllocations(pointer, size) ((void)0)
+#define incrementHeapDeallocations(pointer) ((void)0)
+#define incrementStackAllocations() ((void)0)
+#define incrementStackDeallocations() ((void)0)
+#endif
+
+#endif // MEMORY_MANAGEMENT_H
+
+✦ Elementos Clave del Código
+
+Variables Globales: heap_allocations, stack_allocations para rastrear el uso de memoria.
+Macros Condicionales: Controlan la visibilidad y ejecución del código.
+Subprogramas: Separan funciones según propósito, favoreciendo la modularidad.
+Tipos de Datos: Uso de punteros (void *) y size_t.
+
+
+𖦹 Código #2: Implementación de la Lógica de Rastreo
+#include &#34;memory_management.h&#34;
+#include &lt;stdlib.h&gt;
+
+int heap_allocations = 0;
+int heap_deallocations = 0;
+int stack_allocations = 0;
+int stack_deallocations = 0;
+
+typedef struct MemoryRecord {
+    void *pointer;
+    size_t size;
+    struct MemoryRecord *next;
+} MemoryRecord;
+
+MemoryRecord *heap_memory_records = NULL;
+
+void addMemoryRecord(void *pointer, size_t size) {
+    MemoryRecord *record = (MemoryRecord *)malloc(sizeof(MemoryRecord));
+    record-&gt;pointer = pointer;
+    record-&gt;size = size;
+    record-&gt;next = heap_memory_records;
+    heap_memory_records = record;
+}
+
+void removeMemoryRecord(void *pointer) {
+    MemoryRecord **current = &amp;heap_memory_records;
+    while (*current) {
+        if ((*current)-&gt;pointer == pointer) {
+            MemoryRecord *to_free = *current;
+            *current = (*current)-&gt;next;
+            free(to_free);
+            return;
+        }
+        current = &amp;(*current)-&gt;next;
+    }
+}
+
+✦ Funciones Adicionales
+#if MEMORY_MANAGEMENT_DISPLAY
+void displayMemoryUsage() {
+    // Muestra resumen y detalles de memoria
+}
+
+void incrementHeapAllocations(void *pointer, size_t size) {
+    heap_allocations&#43;&#43;;
+    addMemoryRecord(pointer, size);
+}
+
+void incrementHeapDeallocations(void *pointer) {
+    heap_deallocations&#43;&#43;;
+    removeMemoryRecord(pointer);
+}
+
+void incrementStackAllocations() {
+    stack_allocations&#43;&#43;;
+}
+
+void incrementStackDeallocations() {
+    stack_deallocations&#43;&#43;;
+}
+#endif
+
+✦ Puntos Clave
+
+Gestión del Heap: Registra asignaciones y liberaciones con listas enlazadas.
+Visualización de Uso: Condicional al macro MEMORY_MANAGEMENT_DISPLAY.
+Estructura: Modular y flexible para integrar en proyectos grandes.
+Control de Secuencia: Mediante #if y estructuras iterativas como while.
+
+
+⋆⟡ Conclusión
+Este módulo en C muestra un manejo detallado del uso de memoria, destacando el uso de estructuras, punteros, macros y funciones condicionales. Es una herramienta eficaz para monitorear recursos en sistemas complejos."><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -63,9 +176,9 @@ Montes Solis Kimberly"><script type="application/ld+json">
     "name" : ""
   },
   "headline": "Práctica 1",
-  "description" : "Práctica #1: Elementos básicos de los lenguajes de programación Montes Solis Kimberly",
+  "description" : "Práctica #1: Elementos Básicos de los Lenguajes de Programación Montes Solis Kimberly ✦ Administración de Memoria en C 𖦹 Código #1: Definición del Módulo de Administración de Memoria #ifndef MEMORY_MANAGEMENT_H #define MEMORY_MANAGEMENT_H #include \u0026lt;stdio.h\u0026gt; #ifndef MEMORY_MANAGEMENT_DISPLAY #define MEMORY_MANAGEMENT_DISPLAY 0 #endif extern int heap_allocations; extern int heap_deallocations; extern int stack_allocations; extern int stack_deallocations; #if MEMORY_MANAGEMENT_DISPLAY void displayMemoryUsage(); void incrementHeapAllocations(void *pointer, size_t size); void incrementHeapDeallocations(void *pointer); void incrementStackAllocations(); void incrementStackDeallocations(); #else #define displayMemoryUsage() ((void)0) #define incrementHeapAllocations(pointer, size) ((void)0) #define incrementHeapDeallocations(pointer) ((void)0) #define incrementStackAllocations() ((void)0) #define incrementStackDeallocations() ((void)0) #endif #endif \/\/ MEMORY_MANAGEMENT_H ✦ Elementos Clave del Código Variables Globales: heap_allocations, stack_allocations para rastrear el uso de memoria. Macros Condicionales: Controlan la visibilidad y ejecución del código. Subprogramas: Separan funciones según propósito, favoreciendo la modularidad. Tipos de Datos: Uso de punteros (void *) y size_t. 𖦹 Código #2: Implementación de la Lógica de Rastreo #include \u0026#34;memory_management.h\u0026#34; #include \u0026lt;stdlib.h\u0026gt; int heap_allocations = 0; int heap_deallocations = 0; int stack_allocations = 0; int stack_deallocations = 0; typedef struct MemoryRecord { void *pointer; size_t size; struct MemoryRecord *next; } MemoryRecord; MemoryRecord *heap_memory_records = NULL; void addMemoryRecord(void *pointer, size_t size) { MemoryRecord *record = (MemoryRecord *)malloc(sizeof(MemoryRecord)); record-\u0026gt;pointer = pointer; record-\u0026gt;size = size; record-\u0026gt;next = heap_memory_records; heap_memory_records = record; } void removeMemoryRecord(void *pointer) { MemoryRecord **current = \u0026amp;heap_memory_records; while (*current) { if ((*current)-\u0026gt;pointer == pointer) { MemoryRecord *to_free = *current; *current = (*current)-\u0026gt;next; free(to_free); return; } current = \u0026amp;(*current)-\u0026gt;next; } } ✦ Funciones Adicionales #if MEMORY_MANAGEMENT_DISPLAY void displayMemoryUsage() { \/\/ Muestra resumen y detalles de memoria } void incrementHeapAllocations(void *pointer, size_t size) { heap_allocations\u002b\u002b; addMemoryRecord(pointer, size); } void incrementHeapDeallocations(void *pointer) { heap_deallocations\u002b\u002b; removeMemoryRecord(pointer); } void incrementStackAllocations() { stack_allocations\u002b\u002b; } void incrementStackDeallocations() { stack_deallocations\u002b\u002b; } #endif ✦ Puntos Clave Gestión del Heap: Registra asignaciones y liberaciones con listas enlazadas. Visualización de Uso: Condicional al macro MEMORY_MANAGEMENT_DISPLAY. Estructura: Modular y flexible para integrar en proyectos grandes. Control de Secuencia: Mediante #if y estructuras iterativas como while. ⋆⟡ Conclusión Este módulo en C muestra un manejo detallado del uso de memoria, destacando el uso de estructuras, punteros, macros y funciones condicionales. Es una herramienta eficaz para monitorear recursos en sistemas complejos.\n",
   "inLanguage" : "en",
-  "wordCount":  12 ,
+  "wordCount":  349 ,
   "datePublished" : "2025-03-14T00:00:00\u002b00:00",
   "dateModified" : "2025-03-14T00:00:00\u002b00:00",
   "image" : "http:\/\/localhost:1313\/",
@@ -86,15 +199,132 @@ Montes Solis Kimberly"><script type="application/ld+json">
 
 
 <meta property="og:title" content="Práctica 1" />
-<meta property="og:description" content="Práctica #1: Elementos básicos de los lenguajes de programación
-Montes Solis Kimberly">
+<meta property="og:description" content="Práctica #1: Elementos Básicos de los Lenguajes de Programación
+Montes Solis Kimberly
+✦ Administración de Memoria en C
+
+𖦹 Código #1: Definición del Módulo de Administración de Memoria
+#ifndef MEMORY_MANAGEMENT_H
+#define MEMORY_MANAGEMENT_H
+#include &lt;stdio.h&gt;
+
+#ifndef MEMORY_MANAGEMENT_DISPLAY
+#define MEMORY_MANAGEMENT_DISPLAY 0
+#endif
+
+extern int heap_allocations;
+extern int heap_deallocations;
+extern int stack_allocations;
+extern int stack_deallocations;
+
+#if MEMORY_MANAGEMENT_DISPLAY
+void displayMemoryUsage();
+void incrementHeapAllocations(void *pointer, size_t size);
+void incrementHeapDeallocations(void *pointer);
+void incrementStackAllocations();
+void incrementStackDeallocations();
+#else
+#define displayMemoryUsage() ((void)0)
+#define incrementHeapAllocations(pointer, size) ((void)0)
+#define incrementHeapDeallocations(pointer) ((void)0)
+#define incrementStackAllocations() ((void)0)
+#define incrementStackDeallocations() ((void)0)
+#endif
+
+#endif // MEMORY_MANAGEMENT_H
+
+✦ Elementos Clave del Código
+
+Variables Globales: heap_allocations, stack_allocations para rastrear el uso de memoria.
+Macros Condicionales: Controlan la visibilidad y ejecución del código.
+Subprogramas: Separan funciones según propósito, favoreciendo la modularidad.
+Tipos de Datos: Uso de punteros (void *) y size_t.
+
+
+𖦹 Código #2: Implementación de la Lógica de Rastreo
+#include &#34;memory_management.h&#34;
+#include &lt;stdlib.h&gt;
+
+int heap_allocations = 0;
+int heap_deallocations = 0;
+int stack_allocations = 0;
+int stack_deallocations = 0;
+
+typedef struct MemoryRecord {
+    void *pointer;
+    size_t size;
+    struct MemoryRecord *next;
+} MemoryRecord;
+
+MemoryRecord *heap_memory_records = NULL;
+
+void addMemoryRecord(void *pointer, size_t size) {
+    MemoryRecord *record = (MemoryRecord *)malloc(sizeof(MemoryRecord));
+    record-&gt;pointer = pointer;
+    record-&gt;size = size;
+    record-&gt;next = heap_memory_records;
+    heap_memory_records = record;
+}
+
+void removeMemoryRecord(void *pointer) {
+    MemoryRecord **current = &amp;heap_memory_records;
+    while (*current) {
+        if ((*current)-&gt;pointer == pointer) {
+            MemoryRecord *to_free = *current;
+            *current = (*current)-&gt;next;
+            free(to_free);
+            return;
+        }
+        current = &amp;(*current)-&gt;next;
+    }
+}
+
+✦ Funciones Adicionales
+#if MEMORY_MANAGEMENT_DISPLAY
+void displayMemoryUsage() {
+    // Muestra resumen y detalles de memoria
+}
+
+void incrementHeapAllocations(void *pointer, size_t size) {
+    heap_allocations&#43;&#43;;
+    addMemoryRecord(pointer, size);
+}
+
+void incrementHeapDeallocations(void *pointer) {
+    heap_deallocations&#43;&#43;;
+    removeMemoryRecord(pointer);
+}
+
+void incrementStackAllocations() {
+    stack_allocations&#43;&#43;;
+}
+
+void incrementStackDeallocations() {
+    stack_deallocations&#43;&#43;;
+}
+#endif
+
+✦ Puntos Clave
+
+Gestión del Heap: Registra asignaciones y liberaciones con listas enlazadas.
+Visualización de Uso: Condicional al macro MEMORY_MANAGEMENT_DISPLAY.
+Estructura: Modular y flexible para integrar en proyectos grandes.
+Control de Secuencia: Mediante #if y estructuras iterativas como while.
+
+
+⋆⟡ Conclusión
+Este módulo en C muestra un manejo detallado del uso de memoria, destacando el uso de estructuras, punteros, macros y funciones condicionales. Es una herramienta eficaz para monitorear recursos en sistemas complejos.">
 <meta property="og:url" content="http://localhost:1313/post/post2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Kimiyow Blog " />
 
   <meta name="twitter:title" content="Práctica 1" />
-  <meta name="twitter:description" content="Práctica #1: Elementos básicos de los lenguajes de programación
-Montes Solis Kimberly">
+  <meta name="twitter:description" content="Práctica #1: Elementos Básicos de los Lenguajes de Programación
+Montes Solis Kimberly
+✦ Administración de Memoria en C
+
+𖦹 Código #1: Definición del Módulo de Administración de Memoria
+#ifndef …">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="generator" content="Hugo 0.145.0">
   <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="Kimiyow Blog "><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
@@ -146,7 +376,7 @@ Montes Solis Kimberly">
         
           
             <li>
-              <a title="❤︎ Practica 4" href="/post/post6/">❤︎ Practica 4</a>
+              <a title="❤︎ Practica 4" href="/post/post5/">❤︎ Practica 4</a>
             </li>
           
         
@@ -271,8 +501,122 @@ Montes Solis Kimberly">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="práctica-1-elementos-básicos-de-los-lenguajes-de-programación"><strong>Práctica #1: Elementos básicos de los lenguajes de programación</strong></h1>
+        <h1 id="práctica-1-elementos-básicos-de-los-lenguajes-de-programación"><strong>Práctica #1: Elementos Básicos de los Lenguajes de Programación</strong></h1>
 <h2 id="montes-solis-kimberly"><strong>Montes Solis Kimberly</strong></h2>
+<h2 id="-administración-de-memoria-en-c">✦ Administración de Memoria en C</h2>
+<hr>
+<h3 id="𖦹-código-1-definición-del-módulo-de-administración-de-memoria">𖦹 <strong>Código #1: Definición del Módulo de Administración de Memoria</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#ifndef MEMORY_MANAGEMENT_H
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MEMORY_MANAGEMENT_H
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifndef MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define MEMORY_MANAGEMENT_DISPLAY 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_allocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> heap_deallocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_allocations;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">int</span> stack_deallocations;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#if MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayMemoryUsage</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapAllocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapDeallocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackAllocations</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackDeallocations</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define displayMemoryUsage() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementHeapAllocations(pointer, size) ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementHeapDeallocations(pointer) ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementStackAllocations() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define incrementStackDeallocations() ((void)0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif </span><span style="color:#75715e">// MEMORY_MANAGEMENT_H
+</span></span></span></code></pre></div><hr>
+<h3 id="-elementos-clave-del-código">✦ Elementos Clave del Código</h3>
+<ul>
+<li><strong>Variables Globales</strong>: <code>heap_allocations</code>, <code>stack_allocations</code> para rastrear el uso de memoria.</li>
+<li><strong>Macros Condicionales</strong>: Controlan la visibilidad y ejecución del código.</li>
+<li><strong>Subprogramas</strong>: Separan funciones según propósito, favoreciendo la modularidad.</li>
+<li><strong>Tipos de Datos</strong>: Uso de punteros (<code>void *</code>) y <code>size_t</code>.</li>
+</ul>
+<hr>
+<h3 id="𖦹-código-2-implementación-de-la-lógica-de-rastreo">𖦹 <strong>Código #2: Implementación de la Lógica de Rastreo</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;memory_management.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> heap_allocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> heap_deallocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> stack_allocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> stack_deallocations <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> MemoryRecord {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">size_t</span> size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> MemoryRecord <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} MemoryRecord;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MemoryRecord <span style="color:#f92672">*</span>heap_memory_records <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addMemoryRecord</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size) {
+</span></span><span style="display:flex;"><span>    MemoryRecord <span style="color:#f92672">*</span>record <span style="color:#f92672">=</span> (MemoryRecord <span style="color:#f92672">*</span>)<span style="color:#a6e22e">malloc</span>(<span style="color:#66d9ef">sizeof</span>(MemoryRecord));
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>pointer <span style="color:#f92672">=</span> pointer;
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>size <span style="color:#f92672">=</span> size;
+</span></span><span style="display:flex;"><span>    record<span style="color:#f92672">-&gt;</span>next <span style="color:#f92672">=</span> heap_memory_records;
+</span></span><span style="display:flex;"><span>    heap_memory_records <span style="color:#f92672">=</span> record;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">removeMemoryRecord</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer) {
+</span></span><span style="display:flex;"><span>    MemoryRecord <span style="color:#f92672">**</span>current <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>heap_memory_records;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">*</span>current) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> ((<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>pointer <span style="color:#f92672">==</span> pointer) {
+</span></span><span style="display:flex;"><span>            MemoryRecord <span style="color:#f92672">*</span>to_free <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>current;
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">*</span>current <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">free</span>(to_free);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        current <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h3 id="-funciones-adicionales">✦ Funciones Adicionales</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#if MEMORY_MANAGEMENT_DISPLAY
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayMemoryUsage</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Muestra resumen y detalles de memoria
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapAllocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer, <span style="color:#66d9ef">size_t</span> size) {
+</span></span><span style="display:flex;"><span>    heap_allocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">addMemoryRecord</span>(pointer, size);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementHeapDeallocations</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer) {
+</span></span><span style="display:flex;"><span>    heap_deallocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">removeMemoryRecord</span>(pointer);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackAllocations</span>() {
+</span></span><span style="display:flex;"><span>    stack_allocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">incrementStackDeallocations</span>() {
+</span></span><span style="display:flex;"><span>    stack_deallocations<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span></code></pre></div><hr>
+<h3 id="-puntos-clave">✦ Puntos Clave</h3>
+<ul>
+<li><strong>Gestión del Heap</strong>: Registra asignaciones y liberaciones con listas enlazadas.</li>
+<li><strong>Visualización de Uso</strong>: Condicional al macro <code>MEMORY_MANAGEMENT_DISPLAY</code>.</li>
+<li><strong>Estructura</strong>: Modular y flexible para integrar en proyectos grandes.</li>
+<li><strong>Control de Secuencia</strong>: Mediante <code>#if</code> y estructuras iterativas como <code>while</code>.</li>
+</ul>
+<hr>
+<h3 id="-conclusión">⋆⟡ <strong>Conclusión</strong></h3>
+<p>Este módulo en C muestra un manejo detallado del uso de memoria, destacando el uso de estructuras, punteros, macros y funciones condicionales. Es una herramienta eficaz para monitorear recursos en sistemas complejos.</p>
+<hr>
 
 
         
