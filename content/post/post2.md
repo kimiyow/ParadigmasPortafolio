@@ -4,7 +4,7 @@ date: 2025-03-14
 draft: false
 ---
 
-# **Práctica #1: Elementos Básicos de los Lenguajes de Programación**
+#  **Práctica #1: Elementos Básicos de los Lenguajes de Programación**
 
 ## **Montes Solis Kimberly**
 

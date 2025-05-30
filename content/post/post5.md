@@ -8,13 +8,15 @@ draft: false
 
 ## **Montes Solis Kimberly**
 
+---
+
 ## ✦ Instalación del Entorno de Desarrollo e Introducción a Prolog
 
 Para comenzar con Prolog se recomienda usar **SWI-Prolog**, un entorno gratuito y de código abierto.
 
-🌐 Puedes descargarlo desde: [https://www.swi-prolog.org/download/stable](https://www.swi-prolog.org/download/stable)
+𖦹 Se puede descargar desde: [https://www.swi-prolog.org/download/stable](https://www.swi-prolog.org/download/stable)
 
-Una vez instalado, puedes iniciar la consola de Prolog y comenzar a escribir hechos, reglas y consultas.
+Una vez instalado, iniciamos la consola de Prolog y comenzamos a escribir hechos, reglas y consultas.
 
 ---
 
@@ -109,8 +111,69 @@ Puedes manipular entradas/salidas y trabajar con archivos usando predicados como
 
 ---
 
+## ✦ Aplicaciones del Paradigma Lógico y Prolog
+
+El paradigma lógico, sobre el que se basa Prolog, se enfoca en la representación del conocimiento mediante hechos y reglas, permitiendo inferencias automáticas. Esta capacidad lo hace ideal en múltiples áreas de aplicación.
+
+### ⋆.˚ Inteligencia Artificial
+
+Prolog se emplea en la creación de sistemas inteligentes como chatbots, motores de inferencia o agentes inteligentes.
+
+**Ejemplo: Diagnóstico Médico**
+```prolog
+symptom(jose, fever).
+symptom(jose, cough).
+disease(jose, flu) :- symptom(jose, fever), symptom(jose, cough).
+```
+
+### ⋆.˚ Sistemas Expertos
+
+Ideal para construir sistemas que emulan la toma de decisiones de expertos humanos.
+
+**Ejemplo: Asistente Legal**
+```prolog
+contract_type(written).
+enforceable(X) :- contract_type(X), X == written.
+```
+
+### ⋆.˚ Procesamiento de Lenguaje Natural (PLN)
+
+Útil para crear analizadores gramaticales, traductores automáticos y sistemas de comprensión del lenguaje.
+
+**Ejemplo: Reglas Gramaticales**
+```prolog
+sentence --> noun_phrase, verb_phrase.
+noun_phrase --> [the], noun.
+verb_phrase --> verb, noun_phrase.
+noun --> [cat]; [dog].
+verb --> [chased]; [saw].
+```
+
+### ⋆.˚ Juegos y Resolución de Problemas
+
+Prolog se utiliza en la creación de motores lógicos para resolver rompecabezas, juegos de estrategia, y más.
+
+**Ejemplo: Movimiento del Rey (ajedrez)**
+```prolog
+legal_move(king, X1-Y1, X2-Y2) :-
+  DX is abs(X1 - X2), DY is abs(Y1 - Y2),
+  DX =< 1, DY =< 1.
+```
+
+### ⋆.˚ Robótica y Planificación
+
+Prolog es usado en la planificación de tareas y rutas en entornos dinámicos.
+
+**Ejemplo: Planificación de Ruta**
+```prolog
+connected(a, b).
+connected(b, c).
+path(X, Y) :- connected(X, Y).
+path(X, Y) :- connected(X, Z), path(Z, Y).
+```
+
+---
+
 ## ⋆⟡ **Conclusión**
 
 Prolog es un lenguaje poderoso para la lógica simbólica, relaciones y estructuras de conocimiento. Su capacidad para realizar inferencias lo hace ideal en áreas como **IA, sistemas expertos y árboles genealógicos**. La sintaxis declarativa y la potencia del motor lógico permiten resolver problemas complejos de manera elegante.
-
----

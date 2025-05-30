@@ -6,7 +6,7 @@ draft: false
 
 #  **Práctica #2, Programa 1: Análisis Programa Control de Memoria**  
 
-## **Montes Solis Kimberly 376169**  
+## **Montes Solis Kimberly**  
 
 ## **── .✦ Introducción**  
 
